@@ -26,6 +26,7 @@ $result = mysqli_query($con, $query);
 <th>Available Days</th>
 <th>Time</th>
 <th>Consultation Fee</th>
+<th>Action</th>
 </tr>
 
 <?php while($row = mysqli_fetch_assoc($result)) { ?>
@@ -36,6 +37,7 @@ $result = mysqli_query($con, $query);
 <td><?php echo $row['available_days']; ?></td>
 <td><?php echo $row['start_time']." - ".$row['end_time']; ?></td>
 <td><?php echo $row['consultation_fee']; ?></td>
+<td><a href="doctor_profile.php?id=<?php echo $row['doctor_id']; ?>">View Profile</a></td>
 </tr>
 
 <?php } ?>
