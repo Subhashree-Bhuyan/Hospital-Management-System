@@ -34,9 +34,7 @@ check doctor availability, and manage their medical records.
 <li>Pediatrics</li>
 </ul>
 
-<h2>Book Appointment</h2>
 
-<a href="public/book_appointment.php">Book Appointment Now</a>
 
 </body>
 </html>
