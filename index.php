@@ -14,6 +14,7 @@
     <a href="public/doctors.php">Doctors</a>
     <a href="public/departments.php">Departments</a>
     <a href="public/book_appointment.php">Book Appointment</a>
+    <a href="register.php">Patient Register</a>
     <a href="login.php">Login</a>
 </nav>
 
