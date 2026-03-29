@@ -46,3 +46,17 @@ table th{
 .card img{
     margin-top: 10px;
 }
+
+
+/* appointment */
+input, select{
+    border-radius: 8px !important;
+}
+
+button{
+    border-radius: 8px !important;
+}
+
+.card{
+    border-radius: 15px;
+}

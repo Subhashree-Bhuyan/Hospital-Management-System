@@ -17,7 +17,7 @@ if(isset($_POST['login'])){
 
         $_SESSION['patient_id'] = $row['patient_id'];
 
-        header("Location: index.php");
+        header("Location: dashboard.php");
 
     }else{
 

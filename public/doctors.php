@@ -29,37 +29,40 @@ $result = mysqli_query($con, $query);
 
 <div class="col-md-4 mb-4">
 
-<div class="card shadow h-100 text-center p-3">
+    <div class="card shadow h-100 text-center p-3">
 
-<!-- Doctor Image -->
-<img src="../assets/images/doctor1.png" 
-     class="card-img-top mx-auto"
-     style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+        <!-- Doctor Image -->
+        <img src="../assets/images/doctor1.png" 
+        class="card-img-top mx-auto"
+        style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
 
-<div class="card-body">
+        <!-- Doctor Card Body -->
+        <div class="card-body">
 
-<h5 class="card-title">
-Dr. <?php echo $row['first_name']." ".$row['last_name']; ?>
-</h5>
+            <h5 class="card-title">
+            Dr. <?php echo $row['first_name']." ".$row['last_name']; ?>
+            </h5>
 
-<p class="text-muted"><?php echo $row['department_name']; ?></p>
+            <span class="badge bg-success">Available</span>
 
-<p><strong>Experience:</strong> <?php echo $row['experience']; ?> yrs</p>
+            <p class="text-muted"><?php echo $row['department_name']; ?></p>
 
-<p><strong>Timing:</strong><br>
-<?php echo $row['start_time']." - ".$row['end_time']; ?>
-</p>
+            <p><strong>Experience:</strong> <?php echo $row['experience']; ?> yrs</p>
 
-<p><strong>Fee:</strong> ₹<?php echo $row['consultation_fee']; ?></p>
+            <p><strong>Timing:</strong><br>
+            <?php echo $row['start_time']." - ".$row['end_time']; ?>
+            </p>
 
-<a href="doctor_profile.php?id=<?php echo $row['doctor_id']; ?>" 
-class="btn btn-success btn-sm">
-View Profile
-</a>
+            <p><strong>Fee:</strong> ₹<?php echo $row['consultation_fee']; ?></p>
 
-</div>
+            <a href="doctor_profile.php?id=<?php echo $row['doctor_id']; ?>" 
+            class="btn btn-success btn-sm">
+            View Profile
+            </a>
 
-</div>
+        </div>
+
+    </div>
 
 </div>
 
