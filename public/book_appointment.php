@@ -9,7 +9,7 @@ if(!isset($_SESSION['patient_id'])){
 }
 
 /* get doctor id from URL */
-$doctor_id = $_GET['doctor_id'];
+$doctor_id = isset($_POST['doctor_id']) ? $_POST['doctor_id'] : $_GET['doctor_id'];
 $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
 
 /* booking logic */
@@ -64,7 +64,7 @@ if(mysqli_num_rows($result) > 0){
 <h2>Book Appointment</h2>
 
 <form method="POST">
-
+<input type="hidden" name="doctor_id" value="<?php echo $doctor_id; ?>">
 <input type="hidden" name="date" value="<?php echo $date; ?>">
 
 <label>Appointment Date</label><br>
@@ -77,8 +77,26 @@ onchange="window.location='book_appointment.php?doctor_id=<?php echo $doctor_id;
 required>
 <br><br>
 
+
+    <?php
+
+    $limit_check = "SELECT COUNT(*) as total FROM appointments
+                    WHERE doctor_id='$doctor_id'
+                    AND appointment_date='$date'";
+
+    $limit_result = mysqli_query($con,$limit_check);
+    $row = mysqli_fetch_assoc($limit_result);
+
+    $isFull = ($row['total'] >= 10);
+
+    if($isFull){
+        echo "<p style='color:red;'>Doctor is fully booked for this day.</p>";
+    }
+
+    ?>
+
 <label>Appointment Time</label><br>
-<select name="time" required>
+<select name="time" <?php if($isFull) echo "disabled"; ?> required>
 
 <option value="" disabled selected>Select Time</option>
 
@@ -112,7 +130,7 @@ foreach($slots as $slot){
 </select>
 <br><br>
 
-<button type="submit" name="book">
+<button type="submit" name="book" <?php if($isFull) echo "disabled"; ?>>
 Book Appointment
 </button>
 
