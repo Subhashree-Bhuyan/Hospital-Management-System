@@ -64,6 +64,7 @@ $row = mysqli_fetch_assoc($result);
 
         <p><strong>Consultation Fee:</strong> ₹<?php echo $row['consultation_fee']; ?></p>
 
+        
         <a href="book_appointment.php?doctor_id=<?php echo $row['doctor_id']; ?>" 
         class="btn btn-success mt-3">
         Book Appointment
