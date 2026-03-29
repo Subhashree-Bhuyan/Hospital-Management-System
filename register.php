@@ -9,14 +9,24 @@ if(isset($_POST['register'])){
     $phone = $_POST['phone'];
     $password = $_POST['password'];
 
-    $query = "INSERT INTO patients
-              (first_name,last_name,email,phone,password)
-              VALUES
-              ('$first_name','$last_name','$email','$phone','$password')";
+    $check = "SELECT * FROM patients WHERE email='$email'";
+    $result = mysqli_query($con,$check);
 
-    mysqli_query($con,$query);
+    if(mysqli_num_rows($result) > 0){
 
-    echo "Registration Successful. <a href='login.php'>Login Now</a>";
+        echo "Email already exists";
+
+    }else{
+
+        $query = "INSERT INTO patients
+                (first_name,last_name,email,phone,password)
+                VALUES
+                ('$first_name','$last_name','$email','$phone','$password')";
+
+        mysqli_query($con,$query);
+
+        echo "Registration Successful. <a href='login.php'>Login Now</a>";
+    }
 }
 ?>
 

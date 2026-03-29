@@ -7,23 +7,26 @@ if(isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT * FROM patients WHERE email='$email'  AND password='$password'";
+    $query = "SELECT * FROM patients WHERE email='$email'";
 
-    $result = mysqli_query($con,$query);
+$result = mysqli_query($con,$query);
 
-    if(mysqli_num_rows($result) == 1){
+if(mysqli_num_rows($result) == 1){
 
-        $row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result);
+
+    if($row['password'] == $password){
 
         $_SESSION['patient_id'] = $row['patient_id'];
-
         header("Location: dashboard.php");
 
     }else{
-
-        echo "Invalid Email or Password";
-
+        echo "Wrong Password";
     }
+
+}else{
+    echo "Email not found";
+}
 
 }
 ?>

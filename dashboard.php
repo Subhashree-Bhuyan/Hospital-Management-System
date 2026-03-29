@@ -58,31 +58,110 @@ $app_result = mysqli_query($con, $app_query);
 
 <div class="container mt-5">
 
-<h2 class="mb-4">Welcome, <?php echo $patient['first_name']; ?> 👋</h2>
+  <h2 class="mb-4">Welcome, <?php echo $patient['first_name']; ?> 👋</h2>
 
-<div class="card shadow p-4">
+  <div class="card shadow p-4">
 
-<h4>Your Appointments</h4>
+    <h4>Your Appointments</h4>
+
+    <table class="table table-bordered mt-3">
+    <thead class="table-success">
+    <tr>
+    <th>Doctor</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <?php while($row = mysqli_fetch_assoc($app_result)) { ?>
+
+    <tr>
+    <td>Dr. <?php echo $row['first_name']." ".$row['last_name']; ?></td>
+    <td><?php echo $row['appointment_date']; ?></td>
+    <td><?php echo $row['appointment_time']; ?></td>
+    <td>
+      <?php 
+      if($row['status'] == 'Pending'){
+          echo "<span class='badge bg-warning text-dark'>Pending</span>";
+      }
+      else if($row['status'] == 'Completed'){
+          echo "<span class='badge bg-success'>Completed</span>";
+      }
+      else{
+          echo "<span class='badge bg-danger'>Cancelled</span>";
+      }
+      ?>
+    </td>
+    </tr>
+
+    <?php } ?>
+
+    </tbody>
+    </table>
+
+  </div>
+
+
+</table>
+
+</div>   <!-- END of appointments card -->
+
+<!-- 👉 ADD BILL CODE HERE -->
+
+<div class="card shadow p-4 mt-4">
+
+<h4>Your Bills</h4>
 
 <table class="table table-bordered mt-3">
 <thead class="table-success">
 <tr>
 <th>Doctor</th>
-<th>Date</th>
-<th>Time</th>
+<th>Total Amount</th>
+<th>Paid</th>
+<th>Pending</th>
 <th>Status</th>
 </tr>
 </thead>
 
 <tbody>
 
-<?php while($row = mysqli_fetch_assoc($app_result)) { ?>
+<?php
+
+$bill_query = "SELECT bills.*, doctors.first_name, doctors.last_name
+FROM bills
+JOIN doctors ON bills.doctor_id = doctors.doctor_id
+WHERE bills.patient_id='$patient_id'
+ORDER BY bills.created_at DESC";
+
+$bill_result = mysqli_query($con, $bill_query);
+
+while($bill = mysqli_fetch_assoc($bill_result)){
+
+?>
 
 <tr>
-<td>Dr. <?php echo $row['first_name']." ".$row['last_name']; ?></td>
-<td><?php echo $row['appointment_date']; ?></td>
-<td><?php echo $row['appointment_time']; ?></td>
-<td><?php echo $row['status']; ?></td>
+<td>Dr. <?php echo $bill['first_name']." ".$bill['last_name']; ?></td>
+<td>₹<?php echo $bill['total_amount']; ?></td>
+<td>₹<?php echo $bill['paid_amount']; ?></td>
+<td>₹<?php echo $bill['pending_amount']; ?></td>
+
+<td>
+<?php 
+if($bill['status'] == 'Pending'){
+    echo "<span class='badge bg-warning text-dark'>Pending</span>";
+}
+else if($bill['status'] == 'Paid'){
+    echo "<span class='badge bg-success'>Paid</span>";
+}
+else{
+    echo "<span class='badge bg-info text-dark'>Partial</span>";
+}
+?>
+</td>
+
 </tr>
 
 <?php } ?>
