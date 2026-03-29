@@ -13,37 +13,59 @@ $result = mysqli_query($con, $query);
 <html>
 <head>
     <title>Doctors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
+    <div class="container mt-4">
 
 <h1>Our Doctors</h1>
+<h2 class="text-center mb-4">Our Doctors</h2>
 
-<table border="1">
-<tr>
-<th>Name</th>
-<th>Department</th>
-<th>Available Days</th>
-<th>Time</th>
-<th>Consultation Fee</th>
-<th>Action</th>
-</tr>
+<div class="row">
 
 <?php while($row = mysqli_fetch_assoc($result)) { ?>
 
-<tr>
-<td><?php echo $row['first_name']." ".$row['last_name']; ?></td>
-<td><?php echo $row['department_name']; ?></td>
-<td><?php echo $row['available_days']; ?></td>
-<td><?php echo $row['start_time']." - ".$row['end_time']; ?></td>
-<td><?php echo $row['consultation_fee']; ?></td>
-<td><a href="doctor_profile.php?id=<?php echo $row['doctor_id']; ?>">View Profile</a></td>
-</tr>
+<div class="col-md-4 mb-4">
+
+<div class="card shadow h-100 text-center p-3">
+
+<!-- Doctor Image -->
+<img src="../assets/images/doctor1.png" 
+     class="card-img-top mx-auto"
+     style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+
+<div class="card-body">
+
+<h5 class="card-title">
+Dr. <?php echo $row['first_name']." ".$row['last_name']; ?>
+</h5>
+
+<p class="text-muted"><?php echo $row['department_name']; ?></p>
+
+<p><strong>Experience:</strong> <?php echo $row['experience']; ?> yrs</p>
+
+<p><strong>Timing:</strong><br>
+<?php echo $row['start_time']." - ".$row['end_time']; ?>
+</p>
+
+<p><strong>Fee:</strong> ₹<?php echo $row['consultation_fee']; ?></p>
+
+<a href="doctor_profile.php?id=<?php echo $row['doctor_id']; ?>" 
+class="btn btn-success btn-sm">
+View Profile
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 <?php } ?>
 
-</table>
-
+</div>
+</div>
 </body>
 </html>
