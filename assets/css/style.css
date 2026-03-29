@@ -60,3 +60,150 @@ button{
 .card{
     border-radius: 15px;
 }
+
+/* Hero Section */
+.container-fluid.bg-success {
+    border-radius: 0 0 30px 30px;
+}
+
+/* Cards spacing */
+.card {
+    border: none;
+}
+
+/* Button hover */
+.btn-success:hover {
+    background-color: #198754;
+}
+
+/* Smooth card animation */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Button animation */
+.btn {
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Fade animation */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth card animation */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Button animation */
+.btn {
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Fade animation */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Bottom Fixed Marquee */
+.bottom-marquee {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    color: black;
+    padding: 10px 0;
+    border-top: 2px solid #ddd;
+    z-index: 1000;
+    font-weight: bold;
+}
+body {
+    padding-bottom: 50px;
+}
+
+.navbar-brand h5 {
+    font-size: 18px;
+}
+
+.navbar-brand small {
+    font-size: 12px;
+    color: #dcdcdc;
+}
+/* HERO IMAGE */
+.hero-img {
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+/* LOGO */
+.hero-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+/* TITLE */
+.hero-title {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+/* LOCATION */
+.hero-location {
+    font-size: 18px;
+}
+/* REGISTER CARD */
+.register-card {
+    width: 350px;
+    border-radius: 15px;
+}
+
+/* INPUT FOCUS */
+.form-control:focus {
+    box-shadow: none;
+    border-color: green;
+}
+
+/* BUTTON HOVER */
+.btn-success:hover {
+    background-color: darkgreen;
+}
