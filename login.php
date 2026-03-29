@@ -17,7 +17,7 @@ if(isset($_POST['login'])){
 
         $_SESSION['patient_id'] = $row['patient_id'];
 
-        header("Location: index.php");
+        header("Location: dashboard.php");
 
     }else{
 
@@ -28,20 +28,35 @@ if(isset($_POST['login'])){
 }
 ?>
 
-<h2>Patient Login</h2>
 
-<form method="POST">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="container mt-4">
+    <h2>Patient Login</h2>
 
-<label>Email</label><br>
-<input type="email" name="email" required>
-<br><br>
+    <form method="POST">
 
-<label>Password</label><br>
-<input type="password" name="password" required>
-<br><br>
+    <label>Email</label><br>
+    <input type="email" name="email" required>
+    <br><br>
 
-<button type="submit" name="login">
-Login
-</button>
+    <label>Password</label><br>
+    <input type="password" name="password" required>
+    <br><br>
 
-</form>
+    <button type="submit" name="login">
+    Login
+    </button>
+
+    </form>
+</div>
+</body>
+</html>

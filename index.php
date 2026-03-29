@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Hospital Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -9,14 +10,23 @@
 
 <h1>Hospital Management System</h1>
 
-<nav>
-    <a href="index.php">Home</a>
-    <a href="public/doctors.php">Doctors</a>
-    <a href="public/departments.php">Departments</a>
-    <a href="public/book_appointment.php">Book Appointment</a>
-    <a href="register.php">Patient Register</a>
-    <a href="login.php">Login</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container">
+    <a class="navbar-brand" href="#">Hospital</a>
+
+    <div>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="public/doctors.php">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="public/book_appointment.php">Appointment</a></li>
+        <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
+
 
 <hr>
 
@@ -26,16 +36,15 @@ Our hospital management system allows patients to easily book appointments,
 check doctor availability, and manage their medical records.
 </p>
 
-<h2>Our Departments</h2>
+<div class="container mt-4">
+    <h2>Our Departments</h2>
 
-<ul>
-<li>Cardiology</li>
-<li>Neurology</li>
-<li>Orthopedics</li>
-<li>Pediatrics</li>
-</ul>
-
-
-
+    <ul>
+    <li>Cardiology</li>
+    <li>Neurology</li>
+    <li>Orthopedics</li>
+    <li>Pediatrics</li>
+    </ul>
+</div>
 </body>
 </html>
