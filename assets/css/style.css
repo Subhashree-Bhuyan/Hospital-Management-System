@@ -207,3 +207,487 @@ body {
 .btn-success:hover {
     background-color: darkgreen;
 }
+/* LOGIN PAGE BACKGROUND */
+.login-bg {
+    height: 100vh;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGIN CARD */
+.login-card {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 15px;
+   
+}
+/* ===== REGISTER PAGE BACKGROUND ===== */
+body {
+    background: url('../images/patient.png') no-repeat center center/cover;
+    height: 100vh;
+}
+
+/* ===== GLASS CARD ===== */
+.register-card {
+    width: 400px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #000;
+}
+
+/* ===== INPUT STYLE ===== */
+.input-group-text {
+    background: #198754;
+    color: white;
+    border: none;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+/* ===== BUTTON ===== */
+.btn-success {
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+    background-color: #146c43;
+}
+
+/* ===== TITLE ===== */
+.register-title {
+    font-weight: bold;
+    color: #198754;
+}
+
+/* ===== ANIMATION ===== */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+/* ===== FLOATING LABEL ===== */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    background: transparent;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 45px;
+    transform: translateY(-50%);
+    background: transparent;
+    color: #555;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+/* when input is focused OR has value */
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -8px;
+    left: 40px;
+    font-size: 12px;
+    color: #198754;
+    background: white;
+    padding: 0 5px;
+}
+
+/* adjust icon spacing */
+.form-group .input-group-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+}
+/* ===== DOCTOR LOGIN BACKGROUND ===== */
+.doctor-bg {
+    background: url('../images/doctor.png') no-repeat center center/cover;
+    height: 100vh;
+}
+
+/* ===== GLASS CARD ===== */
+.login-card {
+    width: 400px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ===== FLOATING LABEL ===== */
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 10px 12px 45px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 45px;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -8px;
+    left: 40px;
+    font-size: 12px;
+    color: #198754;
+    background: white;
+    padding: 0 5px;
+}
+
+/* ===== ICON POSITION ===== */
+.form-group i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #198754;
+}
+
+/* ===== BUTTON ===== */
+.btn-success {
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+}
+
+/* ===== ANIMATION ===== */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+/* ===== PREMIUM DOCTOR LOGIN BACKGROUND ===== */
+.doctor-bg {
+    background: url('../images/doctor.png') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+}
+
+/* DARK OVERLAY */
+.doctor-bg::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+}
+
+/* CENTER FIX */
+.login-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* GLASS CARD */
+.login-card {
+    width: 380px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+
+/* TITLE */
+.login-title {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* FLOATING LABEL */
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    color: #ddd;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group input:valid {
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 8px #00ffcc;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -8px;
+    left: 30px;
+    font-size: 12px;
+    background: transparent;
+    color: #00ffcc;
+}
+
+/* ICONS */
+.form-group i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #00ffcc;
+}
+
+/* PASSWORD ICON RIGHT */
+.eye-icon {
+    right: 12px;
+    left: auto;
+    cursor: pointer;
+}
+
+/* BUTTON */
+.btn-login {
+    background: linear-gradient(45deg, #00ffcc, #198754);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ffcc;
+}
+
+/* LINKS */
+.login-links {
+    font-size: 14px;
+}
+
+.login-links a {
+    color: #00ffcc;
+    text-decoration: none;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+/* ANIMATION */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+/* ===== BACKGROUND ===== */
+.doctor-bg {
+    background: url('../images/doctor.png') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+}
+
+/* SOFT DARK OVERLAY */
+.doctor-bg {
+    background: url('../images/doctor.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+}
+.doctor-bg::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+/* CENTER WRAPPER */
+.login-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* CARD DESIGN (SPACIOUS) */
+.login-card {
+    width: 420px;
+    padding: 40px 35px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+/* TITLE */
+.login-title {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* SUBTEXT */
+.login-subtitle {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+/* INPUT GROUP */
+.form-group {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 45px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 14px;
+}
+
+/* FLOAT LABEL */
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 45px;
+    transform: translateY(-50%);
+    color: #ddd;
+    transition: 0.3s;
+}
+
+/* INPUT FOCUS */
+.form-group input:focus,
+.form-group input:valid {
+    border: 1px solid #20c997;
+    box-shadow: 0 0 6px #20c997;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -8px;
+    left: 35px;
+    font-size: 12px;
+    color: #20c997;
+}
+
+/* ICON LEFT */
+.form-group i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #20c997;
+}
+
+/* PASSWORD ICON RIGHT */
+.eye-icon {
+    right: 15px;
+    left: auto;
+    cursor: pointer;
+}
+
+/* BUTTON */
+.btn-login {
+    background: #20c997;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: #159f7a;
+    transform: translateY(-2px);
+}
+
+/* LINKS */
+.login-links {
+    font-size: 13px;
+    color: #ddd;
+}
+
+.login-links a {
+    color: #20c997;
+    text-decoration: none;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+/* ANIMATION */
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+.form-group input {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+}
+
+.form-group input::placeholder {
+    color: transparent;
+}
+.btn-login {
+    background: #20c997;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn-login:hover {
+    background: #159f7a;
+}

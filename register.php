@@ -48,11 +48,13 @@ if(isset($_POST['register'])){
 
 <body>
 
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="container d-flex justify-content-center align-items-center vh-100 fade-in">
 
 <div class="card shadow p-4 register-card">
 
-<h3 class="text-center mb-4">Patient Registration</h3>
+<h3 class="text-center mb-4 register-title">
+<i class="fa fa-user-plus"></i> Patient Registration
+</h3>
 
 <form method="POST">
 
@@ -71,7 +73,7 @@ if(isset($_POST['register'])){
 <!-- EMAIL -->
 <div class="mb-3 input-group">
 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-<input type="email" name="email" class="form-control" placeholder="Email" required>
+<input type="email" name="email" class="form-control" placeholder="Email Address" required>
 </div>
 
 <!-- PHONE -->
@@ -90,14 +92,16 @@ if(isset($_POST['register'])){
 </span>
 </div>
 
+<!-- REGISTER BUTTON -->
 <button type="submit" name="register" class="btn btn-success w-100">
-Register
+<i class="fa fa-user-check"></i> Register Now
 </button>
 
 </form>
 
 <p class="text-center mt-3">
-Already have an account? <a href="login.php">Login</a>
+Already have an account? 
+<a href="login.php">Login</a>
 </p>
 
 </div>
@@ -111,4 +115,5 @@ function togglePassword() {
 </script>
 
 </body>
+
 </html>
