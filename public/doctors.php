@@ -12,7 +12,8 @@ $result = mysqli_query($con, $query);
 <!DOCTYPE html>
 <html>
 <head>
-<title>Our Doctors</title>
+    <title>Doctors</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
