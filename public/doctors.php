@@ -19,8 +19,6 @@ $result = mysqli_query($con, $query);
 
 <body>
     <div class="container mt-4">
-
-<h1>Our Doctors</h1>
 <h2 class="text-center mb-4">Our Doctors</h2>
 
 <div class="row">
@@ -32,9 +30,17 @@ $result = mysqli_query($con, $query);
     <div class="card shadow h-100 text-center p-3">
 
         <!-- Doctor Image -->
-        <img src="../assets/images/doctor1.png" 
-        class="card-img-top mx-auto"
-        style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+     <?php
+$image = "../assets/images/default.png";
+
+if($row['first_name'] == "Amit"){
+    $image = "../assets/images/doctor1.png";
+}
+?>
+
+<img src="<?php echo $image; ?>"
+class="card-img-top mx-auto"
+style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
 
         <!-- Doctor Card Body -->
         <div class="card-body">

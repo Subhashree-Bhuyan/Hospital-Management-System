@@ -29,43 +29,86 @@ if(isset($_POST['register'])){
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
+<meta charset="UTF-8">
+<title>Register</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
-    <div class="container mt-4">
-    <h2>Patient Registration</h2>
 
-    <form method="POST">
+<div class="container d-flex justify-content-center align-items-center vh-100">
 
-    <label>First Name</label><br>
-    <input type="text" name="first_name" required><br><br>
+<div class="card shadow p-4 register-card">
 
-    <label>Last Name</label><br>
-    <input type="text" name="last_name" required><br><br>
+<h3 class="text-center mb-4">Patient Registration</h3>
 
-    <label>Email</label><br>
-    <input type="email" name="email" required><br><br>
+<form method="POST">
 
-    <label>Phone</label><br>
-    <input type="text" name="phone" required><br><br>
-
-    <label>Password</label><br>
-    <input type="password" name="password" required><br><br>
-
-    <button type="submit" name="register">
-    Register
-    </button>
-
-    </form>
+<!-- FIRST NAME -->
+<div class="mb-3 input-group">
+<span class="input-group-text"><i class="fa fa-user"></i></span>
+<input type="text" name="first_name" class="form-control" placeholder="First Name" required>
 </div>
+
+<!-- LAST NAME -->
+<div class="mb-3 input-group">
+<span class="input-group-text"><i class="fa fa-user"></i></span>
+<input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+</div>
+
+<!-- EMAIL -->
+<div class="mb-3 input-group">
+<span class="input-group-text"><i class="fa fa-envelope"></i></span>
+<input type="email" name="email" class="form-control" placeholder="Email" required>
+</div>
+
+<!-- PHONE -->
+<div class="mb-3 input-group">
+<span class="input-group-text"><i class="fa fa-phone"></i></span>
+<input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+</div>
+
+<!-- PASSWORD -->
+<div class="mb-3 input-group">
+<span class="input-group-text"><i class="fa fa-lock"></i></span>
+<input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+
+<span class="input-group-text" onclick="togglePassword()" style="cursor:pointer;">
+<i class="fa fa-eye"></i>
+</span>
+</div>
+
+<button type="submit" name="register" class="btn btn-success w-100">
+Register
+</button>
+
+</form>
+
+<p class="text-center mt-3">
+Already have an account? <a href="login.php">Login</a>
+</p>
+
+</div>
+</div>
+
+<script>
+function togglePassword() {
+    var x = document.getElementById("password");
+    x.type = (x.type === "password") ? "text" : "password";
+}
+</script>
+
 </body>
 </html>
