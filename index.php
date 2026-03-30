@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Hospital Management System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <title>Hospital Management System</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
   <div class="container">
 
@@ -83,7 +87,8 @@
 </div>
 
 <div class="container-fluid bg-success text-white text-center p-5">
-    ...
+  <h2>Welcome to City Care Hospital</h2>
+  <p>Your health is our priority</p>
 </div>
 
 <div class="container mt-5 fade-in">
@@ -118,94 +123,137 @@
 
 </div>
 
+<!-- DEPARTMENTS -->
 <div class="container mt-5 fade-in">
 
-<h2 class="text-center mb-4">Our Departments</h2>
+
+<h2 class="text-center mb-5 fw-bold">Our Departments</h2>
 
 <div class="row">
 
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>Cardiology</h5>
-        <p>Our Heart Center offers comprehensive cardiovascular care, from non-invasive stress testing and advanced echocardiography to personalized treatment plans for heart health and rehabilitation.</p>
+<!-- CARDIOLOGY -->
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <h5 class="fw-bold">Cardiology</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Advanced heart care with modern diagnostics and expert cardiologists.
+        </p>
     </div>
 </div>
 
 <!-- NEUROLOGY -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>Neurology</h5>
-        <p>Our Neurology department specializes in diagnosing and treating complex brain and spine disorders with cutting-edge diagnostic technology.</p>
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+        <h5 class="fw-bold">Neurology</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Specialized treatment for brain and nervous system disorders.
+        </p>
     </div>
 </div>
 
-<!-- GENERAL MEDICINE -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>General Medicine</h5>
-        <p>We provide comprehensive primary care, focusing on the prevention, diagnosis, and non-surgical treatment of adult internal diseases.</p>
-
+<!-- ORTHOPEDICS -->
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-bone"></i>
+        </div>
+        <h5 class="fw-bold">Orthopedics</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Expert care for bones, joints, and mobility restoration.
+        </p>
     </div>
 </div>
 
-<!-- PAEDIATRICS -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>Paediatrics</h5>
-        <p>Our compassionate Paediatric team ensures the highest standard of medical care for infants, children, and adolescents in a child-friendly environment.</p>
-
+<!-- PEDIATRICS -->
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-baby"></i>
+        </div>
+        <h5 class="fw-bold">Pediatrics</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Compassionate care for infants, children, and adolescents.
+        </p>
     </div>
 </div>
 
 <!-- GYNAECOLOGY -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>Gynaecology & Obstetrics</h5>
-        <p>Dedicated to women's health, we offer expert care ranging from routine wellness exams to advanced maternity and prenatal services.</p>
-
-
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-user-nurse"></i>
+        </div>
+        <h5 class="fw-bold">Gynaecology</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Complete women's healthcare and maternity services.
+        </p>
     </div>
 </div>
 
 <!-- PSYCHIATRY -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>Psychiatry</h5>
-        <p>We offer supportive mental health services, providing professional counseling and clinical treatment for emotional and behavioral well-being.</p>
-
-
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-head-side-virus"></i>
+        </div>
+        <h5 class="fw-bold">Psychiatry</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Mental health support with expert counseling and treatment.
+        </p>
     </div>
 </div>
 
 <!-- OPHTHALMOLOGY -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>Ophthalmology</h5>
-        <p>Our eye care specialists provide precision diagnostics and advanced treatments to protect your vision and treat ocular conditions.</p>
-
-
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-eye"></i>
+        </div>
+        <h5 class="fw-bold">Ophthalmology</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Advanced eye care and vision treatment solutions.
+        </p>
     </div>
 </div>
 
 <!-- GASTROENTEROLOGY -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>Gastroenterology</h5>
-        <p>We focus on digestive health, offering expert management of liver, stomach, and intestinal disorders for improved quality of life.</p>
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+          <i class="fa-solid fa-prescription-bottle-medical"></i>
+        </div>
+        <h5 class="fw-bold">Gastroenterology</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Expert care for digestive system and liver disorders.
+        </p>
     </div>
 </div>
-<!-- ORTHOPEDICS -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>Orthopedics</h5>
-        <p>Our Orthopaedic Center offers world-class expertise in joint replacements and sports medicine, helping you regain mobility and strength.</p>
-    </div>
-</div>
+
 <!-- ENT -->
-<div class="col-md-3">
-    <div class="card text-center p-3 shadow">
-        <h5>ENT</h5>
-        <p>Specializing in disorders of the ear, nose, and throat, we provide expert medical and surgical care for all age groups.</p>
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-ear-listen"></i>
+        </div>
+        <h5 class="fw-bold">ENT</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Treatment for ear, nose, and throat conditions.
+        </p>
     </div>
 </div>
 
@@ -213,8 +261,8 @@
 
 </div>
 
+<!-- CTA -->
 <div class="container mt-5 mb-5 text-center">
-
 <h3>Need Medical Help?</h3>
 <p>Book your appointment now and consult with our expert doctors.</p>
 
@@ -228,11 +276,108 @@
         📞 Helpline Number: 9559983850 | 9450123465 | Available 24/7
     </marquee>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+<!-- ================= ABOUT US SECTION ================= -->
+<div class="container mt-5 mb-5 animate">
 
-<!-- ---------------------FOOTER----------------------- -->
+  <div class="row align-items-center">
+
+    <!-- LEFT IMAGE -->
+    <div class="col-md-6 mb-4">
+      <img src="assets/images/hospital2.png" 
+           class="img-fluid rounded shadow-lg"
+           style="border-radius:20px;">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="col-md-6">
+
+      <h2 class="fw-bold text-success mb-3">About City Care Hospital</h2>
+
+      <p class="text-muted">
+        City Care Hospital is a trusted healthcare provider dedicated to delivering 
+        world-class medical services with compassion, innovation, and excellence.
+      </p>
+
+      <p>
+        Our hospital is equipped with modern medical technology and a team of 
+        highly qualified doctors committed to providing the best treatment 
+        for every patient.
+      </p>
+
+      <!-- FEATURES -->
+      <div class="row mt-4">
+
+        <div class="col-6 mb-3">
+          <div class="d-flex align-items-center">
+            <i class="fa fa-check-circle text-success me-2"></i>
+            <span>24/7 Emergency Care</span>
+          </div>
+        </div>
+
+        <div class="col-6 mb-3">
+          <div class="d-flex align-items-center">
+            <i class="fa fa-check-circle text-success me-2"></i>
+            <span>Expert Doctors</span>
+          </div>
+        </div>
+
+        <div class="col-6 mb-3">
+          <div class="d-flex align-items-center">
+            <i class="fa fa-check-circle text-success me-2"></i>
+            <span>Advanced Equipment</span>
+          </div>
+        </div>
+
+        <div class="col-6 mb-3">
+          <div class="d-flex align-items-center">
+            <i class="fa fa-check-circle text-success me-2"></i>
+            <span>Patient-Centered Care</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BUTTON -->
+      <a href="public/doctors.php" class="btn btn-success mt-3 px-4">
+        Explore Our Doctors
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ================= STATS SECTION ================= -->
+<div class="container-fluid bg-success text-white text-center py-5">
+
+  <div class="row">
+
+    <div class="col-md-3">
+     <h2 class="fw-bold counter" data-target="50">0</h2>
+      <p>Doctors</p>
+    </div>
+
+    <div class="col-md-3">
+      <h2 class="fw-bold counter" data-target="10000">0</h2>
+      <p>Patients Treated</p>
+    </div>
+
+    <div class="col-md-3">
+     <h2 class="fw-bold counter" data-target="15">0</h2>
+      <p>Departments</p>
+    </div>
+
+    <div class="col-md-3">
+      <h2 class="fw-bold counter" data-target="24">0</h2>
+      <p>Emergency Service</p>
+    </div>
+
+  </div>
+
+</div>
+
 <footer class="bg-dark text-light py-5 mt-5 border-top border-primary border-4">
   <div class="container">
     <div class="row g-4">
@@ -293,4 +438,25 @@
     </div>
   </div>
 </footer>
+
+<script>
+const elements = document.querySelectorAll('.animate');
+
+function showOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    elements.forEach(el => {
+        const boxTop = el.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+            el.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', showOnScroll);
+window.addEventListener('load', showOnScroll);
+</script>
+</body>
+
 </html>
