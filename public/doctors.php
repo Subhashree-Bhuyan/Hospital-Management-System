@@ -33,8 +33,8 @@ $result = mysqli_query($con, $query);
      <?php
 $image = "../assets/images/default.png";
 
-if($row['first_name'] == "Amit"){
-    $image = "../assets/images/doctor1.png";
+if(!empty($row['image'])){
+    $image = "../assets/images/" . $row['image'];
 }
 ?>
 
@@ -46,7 +46,7 @@ style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
         <div class="card-body">
 
             <h5 class="card-title">
-            Dr. <?php echo $row['first_name']." ".$row['last_name']; ?>
+            <?php echo $row['title']." ".$row['first_name']." ".$row['last_name']; ?>
             </h5>
 
             <span class="badge bg-success">Available</span>
