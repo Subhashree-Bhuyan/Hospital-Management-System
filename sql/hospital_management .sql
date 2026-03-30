@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 29, 2026 at 08:24 PM
+-- Generation Time: Mar 30, 2026 at 04:31 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,8 +42,8 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`appointment_id`, `patient_id`, `doctor_id`, `appointment_date`, `appointment_time`, `status`, `created_at`) VALUES
-(3, 1, 1, '2026-03-14', '08:00:00', 'Pending', '2026-03-13 15:03:49'),
-(4, 1, 1, '2026-03-14', '10:00:00', 'Pending', '2026-03-13 15:16:20'),
+(3, 1, 1, '2026-03-14', '08:00:00', 'Completed', '2026-03-13 15:03:49'),
+(4, 1, 1, '2026-03-14', '10:00:00', 'Cancelled', '2026-03-13 15:16:20'),
 (5, 3, 1, '2026-03-14', '09:00:00', 'Pending', '2026-03-13 15:35:54'),
 (6, 3, 1, '2026-03-13', '08:00:00', 'Pending', '2026-03-13 15:41:19'),
 (7, 1, 1, '2026-05-02', '08:00:00', 'Pending', '2026-03-29 09:18:36'),
@@ -108,7 +108,8 @@ INSERT INTO `departments` (`department_id`, `department_name`) VALUES
 (2, 'Neurology'),
 (3, 'Orthopedics'),
 (4, 'Pediatrics'),
-(5, 'Dermatology');
+(5, 'Dermatology'),
+(6, 'General Medicine');
 
 -- --------------------------------------------------------
 
@@ -130,15 +131,17 @@ CREATE TABLE `doctors` (
   `consultation_fee` decimal(10,2) DEFAULT NULL,
   `middle_name` varchar(50) DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
-  `title` enum('Mr','Mrs','Miss','Ms','Dr','Other') DEFAULT 'Dr'
+  `title` enum('Mr','Mrs','Miss','Ms','Dr','Other') DEFAULT 'Dr',
+  `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`doctor_id`, `user_id`, `first_name`, `last_name`, `department_id`, `phone`, `experience`, `available_days`, `start_time`, `end_time`, `consultation_fee`, `middle_name`, `date_of_birth`, `title`) VALUES
-(1, 2, 'Amit', 'Sharma', 1, '9876543210', 10, 'Monday,Wednesday,Friday', '10:00:00', '14:00:00', 500.00, NULL, NULL, 'Dr');
+INSERT INTO `doctors` (`doctor_id`, `user_id`, `first_name`, `last_name`, `department_id`, `phone`, `experience`, `available_days`, `start_time`, `end_time`, `consultation_fee`, `middle_name`, `date_of_birth`, `title`, `image`) VALUES
+(1, 2, 'Amit', 'Sharma', 1, '9876543210', 10, 'Monday,Wednesday,Friday', '10:00:00', '14:00:00', 500.00, '', NULL, 'Dr', 'doctor1.png'),
+(3, 3, 'Swati', 'Sahoo', 1, '9678492653', 20, 'Wednesday, Thursday, Saturday', '09:30:00', '17:00:00', 500.00, '', NULL, 'Dr', 'doctor2.png');
 
 -- --------------------------------------------------------
 
@@ -205,7 +208,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
 (1, 'Admin', 'admin@hospital.com', 'admin123', 'admin', '2026-03-05 11:55:29'),
-(2, 'Dr Sharma', 'drsharma@hospital.com', 'doctor123', 'doctor', '2026-03-05 11:56:06');
+(2, 'Dr Sharma', 'drsharma@hospital.com', 'doctor123', 'doctor', '2026-03-05 11:56:06'),
+(3, 'Dr. Swati Sucharita Sahoo', 'swatisahoo@hospital.com', 'swati@123', 'doctor', '2026-03-30 07:36:34');
 
 --
 -- Indexes for dumped tables
@@ -281,13 +285,13 @@ ALTER TABLE `bills`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `doctor_notes`
@@ -305,7 +309,7 @@ ALTER TABLE `patients`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
