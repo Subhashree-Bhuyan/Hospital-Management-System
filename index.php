@@ -1,3 +1,11 @@
+<?php
+include("config/db.php");
+
+/* 📊 Fetch counts */
+$doctor_count = mysqli_num_rows(mysqli_query($con, "SELECT * FROM doctors"));
+$patient_count = mysqli_num_rows(mysqli_query($con, "SELECT * FROM patients"));
+$department_count = mysqli_num_rows(mysqli_query($con, "SELECT * FROM departments"));
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -352,26 +360,21 @@
 <!-- ================= STATS SECTION ================= -->
 <div class="container-fluid bg-success text-white text-center py-5">
 
-  <div class="row">
+  <div class="row  justify-content-center">
 
     <div class="col-md-3">
-     <h2 class="fw-bold counter" data-target="50">0</h2>
-      <p>Doctors</p>
+     <h2 class="fw-bold counter"><?php echo $doctor_count; ?></h2>
+      <p>Total Doctors</p>
     </div>
 
     <div class="col-md-3">
-      <h2 class="fw-bold counter" data-target="10000">0</h2>
-      <p>Patients Treated</p>
+      <h2 class="fw-bold counter"><?php echo $patient_count; ?></h2>
+      <p>Total Patients</p>
     </div>
 
     <div class="col-md-3">
-     <h2 class="fw-bold counter" data-target="15">0</h2>
+     <h2 class="fw-bold counter"><?php echo $department_count; ?></h2>
       <p>Departments</p>
-    </div>
-
-    <div class="col-md-3">
-      <h2 class="fw-bold counter" data-target="24">0</h2>
-      <p>Emergency Service</p>
     </div>
 
   </div>

@@ -52,6 +52,7 @@ $appointment_count = mysqli_num_rows(mysqli_query($con, "SELECT * FROM appointme
         </div>
     </div>
 
+
     <!-- Patients -->
     <div class="col-md-4">
         <div class="card text-center shadow">
