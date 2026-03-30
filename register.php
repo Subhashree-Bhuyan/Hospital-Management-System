@@ -3,29 +3,34 @@ include("config/db.php");
 
 if(isset($_POST['register'])){
 
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
+    $title = $_POST['title'];
+    $first = $_POST['first_name'];
+    $middle = $_POST['middle_name'];
+    $last = $_POST['last_name'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = $_POST['password'];
 
-    $check = "SELECT * FROM patients WHERE email='$email'";
-    $result = mysqli_query($con,$check);
+    // check duplicate email
+    $check = mysqli_query($con, "SELECT * FROM patients WHERE email='$email'");
+    // $result = mysqli_query($con,$check);
 
-    if(mysqli_num_rows($result) > 0){
+    if(mysqli_num_rows($check) > 0){
 
-        echo "Email already exists";
+        echo "<script>alert('Email already exists');</script>";
 
     }else{
 
         $query = "INSERT INTO patients
-                (first_name,last_name,email,phone,password)
-                VALUES
-                ('$first_name','$last_name','$email','$phone','$password')";
+        (title, first_name, middle_name, last_name, gender, date_of_birth, email, phone, password)
+        VALUES
+        ('$title','$first','$middle','$last','$gender','$dob','$email','$phone','$password')";
 
         mysqli_query($con,$query);
 
-        echo "Registration Successful. <a href='login.php'>Login Now</a>";
+        echo "<script>alert('Registration Successful'); window.location='login.php';</script>";
     }
 }
 ?>
@@ -79,7 +84,7 @@ if(isset($_POST['register'])){
 <!-- MIDDLE NAME -->
 <div class="mb-3 input-group">
 <span class="input-group-text"><i class="fa fa-user"></i></span>
-<input type="text" name="last_name" class="form-control" placeholder="Middle Name">
+<input type="text" name="middle_name" class="form-control" placeholder="Middle Name">
 </div>
 
 <!-- LAST NAME -->
