@@ -57,16 +57,16 @@ if(isset($_POST['register'])){
 </h3>
 
 <form method="POST">
+
 <!-- TITLE -->
 <div class="mb-3 input-group">
   <span class="input-group-text"><i class="fa fa-user"></i></span>
-  <select name="title" id="title" class="form-select" required>
+  <select name="title" class="form-select" required>
     <option value="" selected disabled>Title</option>
     <option value="Mr">Mr</option>
     <option value="Mrs">Mrs</option>
     <option value="Miss">Miss</option>
     <option value="Ms">Ms</option>
-    <option value="Other">Other</option>
   </select>
 </div>
 
@@ -74,12 +74,6 @@ if(isset($_POST['register'])){
 <div class="mb-3 input-group">
 <span class="input-group-text"><i class="fa fa-user"></i></span>
 <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
-</div>
-
-<!-- MIDDLE NAME -->
-<div class="mb-3 input-group">
-<span class="input-group-text"><i class="fa fa-user"></i></span>
-<input type="text" name="last_name" class="form-control" placeholder="Middle Name">
 </div>
 
 <!-- LAST NAME -->
@@ -90,23 +84,20 @@ if(isset($_POST['register'])){
 
 <!-- GENDER -->
 <div class="mb-3 input-group">
-    <label class="input-group-text" for="gender"><i class="fa fa-users"></i></label>
-    <select name="gender" id="gender" class="form-select" required>
-        <option value="" disabled selected>Select Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-        <option value="prefer-not-to-say">Prefer not to say</option>
-    </select>
+<label class="input-group-text"><i class="fa fa-users"></i></label>
+<select name="gender" class="form-select" required>
+<option disabled selected>Select Gender</option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="other">Other</option>
+</select>
 </div>
 
-<!-- DATE OF BIRTH -->
+<!-- DOB -->
 <div class="mb-3 input-group">
-  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-  <input type="date" name="dob" id="dob" class="form-control" required>
+<span class="input-group-text"><i class="fa fa-calendar"></i></span>
+<input type="date" name="dob" class="form-control" required>
 </div>
-
-
 
 <!-- EMAIL -->
 <div class="mb-3 input-group">
@@ -130,7 +121,7 @@ if(isset($_POST['register'])){
 </span>
 </div>
 
-<!-- REGISTER BUTTON -->
+<!-- BUTTON -->
 <button type="submit" name="register" class="btn btn-success w-100">
 <i class="fa fa-user-check"></i> Register Now
 </button>
@@ -153,5 +144,4 @@ function togglePassword() {
 </script>
 
 </body>
-
 </html>
