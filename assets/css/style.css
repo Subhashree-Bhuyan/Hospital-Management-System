@@ -242,10 +242,10 @@ body {
    
 }
 /* ===== REGISTER PAGE BACKGROUND ===== */
-/*body {
+body {
     background: url('../images/patient.png') no-repeat center center/cover;
     height: 100vh;
-} */
+}
 
 /* ===== GLASS CARD ===== */
 .register-card {

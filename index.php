@@ -87,8 +87,7 @@
 </div>
 
 <div class="container-fluid bg-success text-white text-center p-5">
-  <h2>Welcome to City Care Hospital</h2>
-  <p>Your health is our priority</p>
+
 </div>
 
 <div class="container mt-5 fade-in">
