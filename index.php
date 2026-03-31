@@ -43,8 +43,8 @@ $department_count = mysqli_num_rows(mysqli_query($con, "SELECT * FROM department
         <li class="nav-item"><a class="nav-link" href="public/book_appointment.php">Appointment</a></li>
         <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
         <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="doctor/login.php">Doctor Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="admin/login.php">Admin Login</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="doctor/login.php">Doctor Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin/login.php">Admin Login</a></li> -->
         <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
       </ul>
     </div>

@@ -2,35 +2,64 @@
 session_start();
 include("config/db.php");
 
+$error_msg = "";
+
 if(isset($_POST['login'])){
-
-    $email = $_POST['email'];
+    $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = $_POST['password'];
+    $role = isset($_POST['role']) ? $_POST['role'] : '';
 
-    $query = "SELECT * FROM patients WHERE email='$email'";
-
-$result = mysqli_query($con,$query);
-
-if(mysqli_num_rows($result) == 1){
-
-    $row = mysqli_fetch_assoc($result);
-
-    if($row['password'] == $password){
-
-        $_SESSION['patient_id'] = $row['patient_id'];
-        header("Location: dashboard.php");
-
-    }else{
-        echo "<div class='alert alert-danger text-center'>Wrong Password ❌</div>";
+    // Validate inputs
+    if(empty($email) || empty($password) || empty($role)){
+        $error_msg = "All fields are required ❌";
     }
-
-}else{
-   echo "<div class='alert alert-danger text-center'>Email not found ❌</div>";
-}
-
+    else if($role == 'admin' || $role == 'doctor'){
+        $query = "SELECT * FROM users WHERE email='$email' AND role='$role'";
+        $result = mysqli_query($con, $query);
+        
+        if(mysqli_num_rows($result) == 1){
+            $row = mysqli_fetch_assoc($result);
+            // Check both hashed and plain text passwords
+            if(password_verify($password, $row['password']) || $row['password'] == $password){
+                $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['role'] = $row['role'];
+                $_SESSION['name'] = $row['name'];
+                
+                if($role == 'admin'){
+                    header("Location: admin/dashboard.php");
+                }else{
+                    header("Location: doctor/dashboard.php");
+                }
+                exit();
+            }else{
+                $error_msg = "Wrong Password ❌";
+            }
+        }else{
+            $error_msg = "Invalid Credentials ❌";
+        }
+    }
+    elseif($role == 'patient'){
+        $query = "SELECT * FROM patients WHERE email='$email'";
+        $result = mysqli_query($con, $query);
+        
+        if(mysqli_num_rows($result) == 1){
+            $row = mysqli_fetch_assoc($result);
+            // Check both hashed and plain text passwords
+            if(password_verify($password, $row['password']) || $row['password'] == $password){
+                $_SESSION['patient_id'] = $row['patient_id'];
+                $_SESSION['role'] = 'patient';
+                $_SESSION['name'] = $row['title'] . ' ' . $row['first_name'] . ' ' . $row['last_name'];
+                header("Location: patients/dashboard.php");
+                exit();
+            }else{
+                $error_msg = "Wrong Password ❌";
+            }
+        }else{
+            $error_msg = "Email not found ❌";
+        }
+    }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -183,7 +212,17 @@ body{
 <p class="subtitle">Bhubaneswar, Odisha</p>
 
 <form method="POST">
-
+<?php if($error_msg) echo "<div class='alert alert-danger text-center'>$error_msg</div>"; ?>
+<!-- ROLE SELECTION -->
+<div class="form-group">
+<i class="fa fa-user"></i>
+<select name="role" class="form-control" required style="background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 10px; padding: 12px 40px 12px 40px;">
+    <option value="" disabled selected>Select Role</option>
+    <option value="admin">Admin</option>
+    <option value="doctor">Doctor</option>
+    <option value="patient">Patient</option>
+</select>
+</div>
 <!-- EMAIL -->
 <div class="form-group">
 <i class="fa fa-envelope"></i>

@@ -3,12 +3,18 @@ session_start();
 include("../config/db.php");
 
 /* check doctor login */
-if(!isset($_SESSION['doctor_id'])){
-    header("Location: login.php");
+if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor'){
+    header("Location: ../login.php");
     exit();
 }
 
-$doctor_id = $_SESSION['doctor_id'];
+$user_id = $_SESSION['user_id'];
+
+/* get doctor_id from doctors table */
+$doc_query = "SELECT doctor_id FROM doctors WHERE user_id='$user_id'";
+$doc_result = mysqli_query($con, $doc_query);
+$doc_row = mysqli_fetch_assoc($doc_result);
+$doctor_id = $doc_row['doctor_id'];
 
 /* fetch appointments */
 $query = "SELECT appointments.*, patients.first_name, patients.last_name
