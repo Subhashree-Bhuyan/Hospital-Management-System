@@ -23,6 +23,17 @@ WHERE appointments.patient_id='$patient_id'
 ORDER BY appointment_date DESC";
 
 $app_result = mysqli_query($con, $app_query);
+
+/* fetch appointments WITH doctor notes */
+$app_query = "SELECT appointments.*, doctors.first_name, doctors.last_name, 
+              doctor_notes.diagnosis, doctor_notes.prescription
+              FROM appointments
+              LEFT JOIN doctors ON appointments.doctor_id = doctors.doctor_id
+              LEFT JOIN doctor_notes ON appointments.appointment_id = doctor_notes.appointment_id
+              WHERE appointments.patient_id='$patient_id'
+              ORDER BY appointment_date DESC";
+
+$app_result = mysqli_query($con, $app_query);
 ?>
 
 <!DOCTYPE html>
@@ -55,18 +66,58 @@ $app_result = mysqli_query($con, $app_query);
 <th>Status</th>
 </tr>
 </thead>
+
+
+<!-- Doctor notes -->
 <tbody>
 
 <?php while($row = mysqli_fetch_assoc($app_result)) { ?>
 <tr>
-<td>Dr. <?php echo $row['first_name'] . " " . $row['last_name']; ?></td>
-<td><?php echo $row['appointment_date']; ?></td>
-<td><?php echo $row['appointment_time']; ?></td>
-<td><?php echo $row['status']; ?></td>
+<td colspan="4">
+  <div class="card mb-2">
+    <div class="card-header bg-light">
+      <strong>Dr. <?php echo $row['first_name'] . " " . $row['last_name']; ?></strong> | 
+      <?php echo $row['appointment_date']; ?> at <?php echo $row['appointment_time']; ?>
+      <?php 
+      if($row['status'] == 'Completed'){
+        echo " | <span class='badge bg-success'>✓ Completed</span>";
+      } elseif($row['status'] == 'Pending'){
+        echo " | <span class='badge bg-warning text-dark'>⏳ Pending</span>";
+      } else {
+        echo " | <span class='badge bg-danger'>✗ Cancelled</span>";
+      }
+      ?>
+    </div>
+    <div class="card-body">
+      <?php if($row['diagnosis'] && $row['prescription']) { ?>
+        <div class="row">
+          <div class="col-md-6">
+            <strong>🔍 Diagnosis:</strong><br>
+            <p><?php echo $row['diagnosis']; ?></p>
+          </div>
+          <div class="col-md-6">
+            <strong>💊 Prescription:</strong><br>
+            <p><?php echo $row['prescription']; ?></p>
+            <a href="download_prescription.php?id=<?php echo $row['appointment_id']; ?>" class="btn btn-sm btn-primary">📥 Download PDF</a>
+          </div>
+        </div>
+      <?php } else { ?>
+        <p class="text-muted">No notes added yet.</p>
+      <?php } ?>
+    </div>
+  </div>
+</td>
 </tr>
+
 <?php } ?>
 
 </tbody>
+
+
+
+
+
+
 </table>
 <?php } else { ?>
 <p class="alert alert-info">No appointments yet. <a href="../public/book_appointment.php">Book one now!</a></p>

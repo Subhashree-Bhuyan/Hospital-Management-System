@@ -3,12 +3,20 @@ session_start();
 include("../config/db.php");
 
 /* check doctor login */
-if(!isset($_SESSION['doctor_id'])){
-    header("Location: login.php");
+if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor'){
+    header("Location: ../login.php");
     exit();
 }
 
-$doctor_id = $_SESSION['doctor_id'];
+$user_id = $_SESSION['user_id'];
+
+/* get doctor_id from doctors table */
+$doc_query = "SELECT doctor_id, first_name, last_name FROM doctors WHERE user_id='$user_id'";
+$doc_result = mysqli_query($con, $doc_query);
+$doc_row = mysqli_fetch_assoc($doc_result);
+$doctor_id = $doc_row['doctor_id'];
+$doctor_name = $doc_row['first_name'] . " " . $doc_row['last_name'];
+
 $appointment_id = $_GET['id'];
 
 // Fetch appointment details
@@ -53,29 +61,61 @@ if(isset($_POST['save_notes'])){
 <head>
 <title>Add Notes</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  .navbar { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); }
+</style>
 </head>
+
 <body>
 
+<!-- Navbar -->
+<nav class="navbar navbar-dark mb-4">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">🏥 Hospital Management</span>
+    <div>
+      <span class="text-white me-3">👨‍⚕️ Dr. <?php echo $doctor_name; ?></span>
+      <a href="../logout.php" class="btn btn-light btn-sm">Logout</a>
+    </div>
+  </div>
+</nav>
+
 <div class="container mt-5">
-<h2>Add Notes for Appointment</h2>
-<p><strong>Patient:</strong> <?php echo $appointment['first_name'] . ' ' . $appointment['last_name']; ?></p>
-<p><strong>Date:</strong> <?php echo $appointment['appointment_date']; ?> <strong>Time:</strong> <?php echo $appointment['appointment_time']; ?></p>
 
-<form method="POST">
-<div class="mb-3">
-<label>Diagnosis</label>
-<textarea name="diagnosis" class="form-control" rows="4"><?php echo $notes['diagnosis'] ?? ''; ?></textarea>
+<div class="card">
+  <div class="card-header bg-light">
+    <h3>📝 Add/Edit Appointment Notes</h3>
+  </div>
+  <div class="card-body">
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <p><strong>👤 Patient:</strong> <?php echo $appointment['first_name'] . ' ' . $appointment['last_name']; ?></p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>📅 Date:</strong> <?php echo $appointment['appointment_date']; ?> <strong>🕐 Time:</strong> <?php echo $appointment['appointment_time']; ?></p>
+      </div>
+    </div>
+
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label"><strong>🔍 Diagnosis</strong></label>
+        <textarea name="diagnosis" class="form-control" rows="5" placeholder="Enter patient diagnosis..." required><?php echo $notes['diagnosis'] ?? ''; ?></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"><strong>💊 Prescription</strong></label>
+        <textarea name="prescription" class="form-control" rows="5" placeholder="Enter prescription details..." required><?php echo $notes['prescription'] ?? ''; ?></textarea>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button type="submit" name="save_notes" class="btn btn-primary">💾 Save Notes</button>
+        <a href="dashboard.php" class="btn btn-secondary">⬅️ Back to Dashboard</a>
+      </div>
+    </form>
+  </div>
 </div>
 
-<div class="mb-3">
-<label>Prescription</label>
-<textarea name="prescription" class="form-control" rows="4"><?php echo $notes['prescription'] ?? ''; ?></textarea>
 </div>
 
-<button type="submit" name="save_notes" class="btn btn-primary">Save Notes</button>
-<a href="dashboard.php" class="btn btn-secondary">Back</a>
-</form>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
