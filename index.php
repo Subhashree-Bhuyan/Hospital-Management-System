@@ -64,7 +64,7 @@ $department_count = mysqli_num_rows(mysqli_query($con, "SELECT * FROM department
 
       <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
         <img src="assets/images/logo.png" class="hero-logo mb-3">
-        <h1 class="hero-title">City Care Hospital</h1>
+        <h1 class="hero-title" style="color: white">City Care Hospital</h1>  
         <p class="hero-location">Bhubaneswar, Odisha</p>
       </div>
     </div>
@@ -251,6 +251,7 @@ $department_count = mysqli_num_rows(mysqli_query($con, "SELECT * FROM department
     </div>
 </div>
 
+
 <!-- ENT -->
 <div class="col-md-3 mb-4">
     <div class="card dept-card text-center p-4 h-100">
@@ -261,6 +262,34 @@ $department_count = mysqli_num_rows(mysqli_query($con, "SELECT * FROM department
         <div class="divider mx-auto my-2"></div>
         <p class="text-muted small">
             Treatment for ear, nose, and throat conditions.
+        </p>
+    </div>
+</div>
+
+<!-- General Medicine -->
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-stethoscope"></i>
+        </div>
+        <h5 class="fw-bold">General Medicine</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Comprehensive primary care for adults, including diagnosis, treatment, and chronic disease management.
+        </p>
+    </div>
+</div>
+
+<!-- Dermatology -->
+<div class="col-md-3 mb-4">
+    <div class="card dept-card text-center p-4 h-100">
+        <div class="dept-icon mb-3">
+            <i class="fa-solid fa-hand-dots"></i>
+        </div>
+        <h5 class="fw-bold">Dermatology</h5>
+        <div class="divider mx-auto my-2"></div>
+        <p class="text-muted small">
+            Expert diagnosis and treatment of skin, hair, nail, and mucous membrane conditions.
         </p>
     </div>
 </div>
