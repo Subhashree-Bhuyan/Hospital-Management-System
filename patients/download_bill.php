@@ -10,11 +10,12 @@ if (!isset($_SESSION['patient_id'])) {
 
 $patient_id = (int) $_SESSION['patient_id'];
 
-if (!isset($_GET['bill_id']) || !is_numeric($_GET['bill_id'])) {
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     die("Invalid bill request.");
 }
 
-$bill_id = (int) $_GET['bill_id'];
+$bill_id = (int) $_GET['id'];
+
 
 $stmt = mysqli_prepare($con, "
     SELECT
